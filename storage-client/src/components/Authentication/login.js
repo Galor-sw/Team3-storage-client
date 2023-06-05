@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    // const history = useHistory();
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
@@ -18,6 +18,7 @@ const Login = () => {
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token);
                 console.log('Login successful');
+                navigate('/');
             } else {
                 console.log('Login failed');
             }
@@ -26,7 +27,6 @@ const Login = () => {
         }
 
     };
-
 
     return (
         <div className="flex flex-col items-center">
