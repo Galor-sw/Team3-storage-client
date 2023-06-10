@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from './components/homePage';
 import Warehouse from './components/warehouse';
 import Authentication from './components/Authentication/authentication';
+import AddUnit from './components/addUnitForm';
 
 // Higher-order component for handling authentication
 const ProtectedRoute = ({ component: Component, ...props }) => {
@@ -60,6 +61,7 @@ function App() {
         <Route path="/" element={<ProtectedRoute component={HomePage} />} />
         <Route path="/login" element={<Authentication />} />
         <Route path="/warehouse" element={<ProtectedRoute component={Warehouse} />} />
+        <Route path="/addunit" element={<ProtectedRoute component={AddUnit} />} />
       </Routes>
     </Router>
   );
